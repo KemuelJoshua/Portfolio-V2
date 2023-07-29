@@ -1,0 +1,188 @@
+
+// Override Bootstrap variables
+$primary: #6e07f3; // Custom primary color
+$dark: #000000; // Custom primary color
+$secondary: #5be9b9; // Custom secondary color
+$third: #FFFFFF; // Custom third color
+$fourth: #A7C2E5; // Custom fourth color
+$times: 'Roboto', sans-serif; // Custom fonts
+$bebas: 'Bebas Neue', sans-serif; // Custom fonts
+$times: 'Times New Roman', Times, serif;// Custom fonts
+$transparent: rgba(0, 0, 0, 0);
+$white: #fafafa;
+$white2: #ffffff;
+
+// custom color variables
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "third": $third,
+  "head": $dark,
+  "transparent": $transparent,
+  "dark": $dark,
+  "support" : $primary,
+  "white" : $white,
+  "white2": $white2
+);
+
+$body-bg: $third;
+$body-color: $primary;
+// Font Weights
+$font-weight-bold: 700;
+$font-weight-light: 300;
+// Import Bootstrap to have its styles available
+
+@import '~bootstrap/scss/bootstrap';
+
+  .container {
+    max-width: 1600px;
+  }
+
+ 
+  .btn {
+    border-radius: 3px;
+    padding: 15px 5px, 5px, 15px
+  }
+
+  .btn-support {
+    max-width: 200px;
+  }
+
+  span, p, a, h1, h2, h3, h4, h5 {
+    letter-spacing: 3px;
+  }
+  
+
+
+$font-size-h1-lg: 6rem;
+$font-size-h1-md: 5rem;
+$font-size-h1-sm: 4rem;
+$font-size-h1-xs: 4rem;
+
+$font-size-h4-lg: 3rem;
+$font-size-h4-md: 2rem;
+$font-size-h4-sm: 2rem;
+$font-size-h4-xs: 2rem;
+
+// Create a mixin for applying font sizes to headings with media queries
+@mixin responsive-heading-styles($font-size) {
+  font-size: $font-size;
+  // Add any other common styles for headings here
+
+  // Media queries to adjust the font size on different screen sizes
+  @media (max-width: 1199.98px) {
+    font-size: $font-size-h1-md;
+    font-size: $font-size-h4-md;
+  }
+
+  @media (max-width: 991.98px) {
+    font-size: $font-size-h1-sm;
+    font-size: $font-size-h4-sm;
+  }
+
+  @media (max-width: 767.98px) {
+    font-size: $font-size-h1-xs;
+    font-size: $font-size-h4-xs;
+  }
+}
+
+// Apply the mixin to the .custom-h1 class
+.custom-h1 {
+  @include responsive-heading-styles($font-size-h1-lg);
+  
+}
+
+.custom-h4 {
+  @include responsive-heading-styles($font-size-h4-lg);
+}
+
+@media (min-width: 993px){
+  /* If using SCSS */
+.nav-link {
+  position: relative;
+  text-decoration: none;
+  font-size: smaller;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background-color: $third; /* Default underline color */
+    transition: width 0.3s ease;
+  }
+
+  &.dark::after {
+    background-color: #081522; /* Underline color for dark mode */
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+
+  &.active::after {
+    width: 100%;
+  }
+}
+
+}
+
+
+//extra-Large
+@media (min-width: 993px) {
+  .wrapper {
+
+    height: 600px;
+    max-width: 400px;
+
+  }
+  .flex {
+    display: flex;
+    align-items: end;
+  }
+}
+
+
+//Large
+@media (max-width: 991.98px) {
+  .container {
+    margin: 0px;
+    padding: 0px;
+  }
+  .wrapper {
+    height: 600px;
+    max-width: 400px;
+  }
+  .flex{
+    display: flex;
+    align-items: end;
+  }
+}
+//medium
+@media (max-width: 767px){
+  .wrapper.flex {
+    height: 600px;
+    max-width: 400px;
+    display: flex;
+    align-items: start;
+  }
+}
+
+//small
+@media (max-width: 576){
+  .wrapper {
+    height: 450px;
+    max-width: 300px;
+    .flex {
+      display: flex;
+      align-items: start;
+    }
+  }
+  
+}
+
+//extra small
+@media (max-width: 576){
+
+}
